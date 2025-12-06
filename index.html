@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>City Bearings - Gweru</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <h1 class="logo"><span class="logo-red">City</span> <span class="logo-blue">Bearings</span></h1>
+      <p class="tagline">Your trusted bearings supplier in Gweru</p>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button id="menuBtn" aria-label="Open menu" class="menu-btn">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Desktop nav -->
+    <nav class="nav-desktop">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Overlay and Mobile Drawer -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+  <aside id="drawer" class="drawer" aria-hidden="true" aria-label="Site menu">
+    <button id="closeDrawer" class="close-btn" aria-label="Close menu">✕</button>
+    <nav class="nav-mobile">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#products" class="nav-link">Products</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="drawer-contact">
+      <p><strong>Tel:</strong> (054) 222 9118</p>
+      <a class="btn btn-whatsapp" href="https://wa.me/263542229118">Chat on WhatsApp</a>
+    </div>
+  </aside>
+
+  <!-- Hero section with image background -->
+  <section id="home" class="hero" role="banner" aria-label="City Bearings hero">
+    <div class="hero-content">
+      <h2 class="hero-title">
+        <span class="reveal">Reliable Bearings for Every Industry</span>
+      </h2>
+      <p class="hero-subtitle">
+        <span class="reveal delay-1">Supplying quality bearings, seals, and motor spares in Gweru.</span>
+      </p>
+      <a href="#contact" class="btn btn-primary reveal delay-2">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <h3>About us</h3>
+    <p>
+      City Bearings is your local supplier of industrial and automotive bearings.
+      We provide reliable products, fast service, and practical support for workshops,
+      farms, and factories across Gweru.
+    </p>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="section">
+    <h3>Our products</h3>
+    <div class="product-grid">
+      <article class="product-card">
+        <h4>Ball bearings</h4>
+        <p>Durable and versatile for motors, fans, and general machinery.</p>
+      </article>
+      <article class="product-card">
+        <h4>Roller bearings</h4>
+        <p>Built for heavy loads in industrial applications.</p>
+      </article>
+      <article class="product-card">
+        <h4>Thrust bearings</h4>
+        <p>Handles axial loads in gearboxes and rotating assemblies.</p>
+      </article>
+      <article class="product-card">
+        <h4>Seals & belts</h4>
+        <p>Essential components to keep machines running smoothly.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h3>Contact us</h3>
+    <p><strong>Tel:</strong> (054) 222 9118</p>
+    <p><strong>Location:</strong> Gweru, Zimbabwe</p>
+    <div class="contact-actions">
+      <a class="btn btn-primary" href="tel:+263542229118">Call now</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/263542229118">Chat on WhatsApp</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 City Bearings | Designed by STAFF</p>
+  </footer>
+
+  <script>
+    // Mobile menu controls
+    const menuBtn = document.getElementById('menuBtn');
+    const overlay = document.getElementById('overlay');
+    const drawer = document.getElementById('drawer');
+    const closeBtn = document.getElementById('closeDrawer');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function openMenu() {
+      drawer.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+    }
+    function closeMenu() {
+      drawer.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+    }
+
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // Trigger hero reveal on load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.classList.add('in');
+      });
+    });
+  </script>
+</body>
+</html>

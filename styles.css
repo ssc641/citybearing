@@ -157,7 +157,7 @@ body {
   color: var(--white);
   /* Replace with your hero image path */
   background-image: linear-gradient(rgba(0, 63, 136, 0.35), rgba(0, 63, 136, 0.35)),
-                    url('hero-bearings.jpg');
+                    url('himg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -286,3 +286,4 @@ body {
     grid-template-columns: repeat(4, minmax(220px, 1fr));
   }
 }
+

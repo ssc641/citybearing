@@ -7,7 +7,7 @@
   --muted: #6b7280;
   --bg: #f7f8fc;
   --white: #ffffff;
-  --overlay: rgba(0, 0, 0, 0.45); /* semi-transparent background */
+  --overlay: rgba(0, 0, 0, 0.45);
 }
 
 * { box-sizing: border-box; }
@@ -38,7 +38,6 @@ body {
   margin: 0;
   font-size: 1.3rem;
   font-weight: 800;
-  letter-spacing: 0.2px;
 }
 .logo-red { color: var(--red); }
 .logo-blue { color: var(--blue); }
@@ -48,7 +47,7 @@ body {
   color: var(--muted);
 }
 
-/* Desktop nav (hidden on mobile) */
+/* Desktop nav */
 .nav-desktop {
   display: none;
   gap: 1rem;
@@ -81,7 +80,7 @@ body {
   border-radius: 2px;
 }
 
-/* Overlay (semi-transparent background) */
+/* Overlay */
 .overlay {
   position: fixed;
   inset: 0;
@@ -96,31 +95,28 @@ body {
   pointer-events: auto;
 }
 
-/* Drawer (semi-transparent sidebar) */
+/* Drawer */
 .drawer {
   position: fixed;
   top: 0;
   right: 0;
   width: min(80vw, 340px);
   height: 100vh;
-  background: rgba(255, 255, 255, 0.95); /* semi-transparent white */
+  background: rgba(255, 255, 255, 0.95); /* semi-transparent */
   box-shadow: -12px 0 24px rgba(0,0,0,0.25);
-  z-index: 1100; /* higher than navbar and overlay */
+  z-index: 1100; /* above navbar and overlay */
   transform: translateX(100%);
   transition: transform 250ms ease;
   display: flex;
   flex-direction: column;
   padding: 1rem;
 }
-.drawer[aria-hidden="false"] {
-  transform: translateX(0);
-}
+.drawer[aria-hidden="false"] { transform: translateX(0); }
 .close-btn {
   align-self: flex-end;
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  line-height: 1;
   cursor: pointer;
   color: var(--text);
   margin-bottom: 0.5rem;
@@ -137,9 +133,7 @@ body {
   font-weight: 600;
   box-shadow: 0 0 0 1px #e5e7eb inset;
 }
-.nav-mobile .nav-link:hover {
-  background: #f3f4f6;
-}
+.nav-mobile .nav-link:hover { background: #f3f4f6; }
 .drawer-contact {
   margin-top: auto;
   display: grid;
@@ -147,7 +141,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* Hero section with image background */
+/* Hero section */
 .hero {
   position: relative;
   min-height: 62vh;
@@ -155,16 +149,24 @@ body {
   place-items: center;
   text-align: center;
   color: var(--white);
-  /* Replace with your hero image path */
-  background-image: linear-gradient(rgba(0, 63, 136, 0.35), rgba(0, 63, 136, 0.35)),
-                    url('himg.jpg');
+
+  /* Background image only */
+  background: url('himg.jpg') no-repeat center center;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* Hero content container */
+/* Gradient overlay separate */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 63, 136, 0.35), rgba(0, 63, 136, 0.35));
+  z-index: 0;
+}
+
 .hero-content {
+  position: relative;
+  z-index: 1;
   padding: 2rem 1rem;
   max-width: 860px;
 }
@@ -172,7 +174,6 @@ body {
   font-size: clamp(1.6rem, 4.5vw, 2.8rem);
   margin: 0 0 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.3px;
 }
 .hero-subtitle {
   font-size: clamp(1rem, 2.8vw, 1.25rem);
@@ -180,31 +181,20 @@ body {
   color: #e9eefc;
 }
 
-/* Reveal animation on page load */
+/* Reveal animation */
 .reveal {
   display: inline-block;
   opacity: 0;
   transform: translateY(14px);
 }
-.reveal.in {
-  animation: slideFadeIn 650ms ease forwards;
-}
+.reveal.in { animation: slideFadeIn 650ms ease forwards; }
 .delay-1.reveal.in { animation-delay: 150ms; }
 .delay-2.reveal.in { animation-delay: 300ms; }
 
 @keyframes slideFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(14px); }
+  60% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* Buttons */
@@ -214,7 +204,7 @@ body {
   border-radius: 8px;
   text-decoration: none;
   font-weight: 700;
-  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  transition: transform 120ms ease, box-shadow 120ms ease;
 }
 .btn-primary {
   background: var(--red);
@@ -271,7 +261,7 @@ body {
   padding: 1rem;
 }
 
-/* Responsive: show desktop nav on larger screens */
+/* Responsive */
 @media (min-width: 900px) {
   .nav-desktop { display: flex; }
   .menu-btn { display: none; }
@@ -285,5 +275,4 @@ body {
   .product-grid {
     grid-template-columns: repeat(4, minmax(220px, 1fr));
   }
-}
-
+                        }

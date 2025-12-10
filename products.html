@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>City Bearings - Products</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <h1 class="logo"><span class="logo-red">City</span> <span class="logo-blue">Bearings</span></h1>
+      <p class="tagline">Your trusted bearings supplier in Gweru</p>
+    </div>
+
+    <!-- Desktop nav -->
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button id="menuBtn" aria-label="Open menu" class="menu-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Overlay and Drawer -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <button id="closeDrawer" class="close-btn" aria-label="Close menu">✕</button>
+    <nav class="nav-mobile">
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="drawer-contact">
+      <p><strong>Tel:</strong> (054) 222 9118</p>
+      <a class="btn btn-whatsapp" href="https://wa.me/263542229118">Chat on WhatsApp</a>
+    </div>
+  </aside>
+
+  <!-- Products Section -->
+  <section class="section">
+    <h2>Our Products</h2>
+    <p>Explore our range of industrial and automotive bearings, seals, and spares.</p>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <img src="images/ball-bearing.jpg" alt="Ball Bearing" style="width:100%; border-radius:8px;">
+        <h4>Ball Bearings</h4>
+        <p>Versatile bearings for motors, fans, and general machinery.</p>
+      </article>
+
+      <article class="product-card">
+        <img src="images/roller-bearing.jpg" alt="Roller Bearing" style="width:100%; border-radius:8px;">
+        <h4>Cylindrical Roller Bearings</h4>
+        <p>Heavy-duty bearings designed to handle large radial loads.</p>
+      </article>
+
+      <article class="product-card">
+        <img src="images/thrust-bearing.jpg" alt="Thrust Bearing" style="width:100%; border-radius:8px;">
+        <h4>Thrust Bearings</h4>
+        <p>Specialized bearings for axial loads in gearboxes and turbines.</p>
+      </article>
+
+      <article class="product-card">
+        <img src="images/seals-belts.jpg" alt="Seals and Belts" style="width:100%; border-radius:8px;">
+        <h4>Seals & Belts</h4>
+        <p>Essential components to keep machines running smoothly.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 City Bearings | Designed by STAFF</p>
+  </footer>
+
+  <script>
+    // Mobile menu controls
+    const menuBtn = document.getElementById('menuBtn');
+    const overlay = document.getElementById('overlay');
+    const drawer = document.getElementById('drawer');
+    const closeBtn = document.getElementById('closeDrawer');
+    const navLinks = document.querySelectorAll('.nav-mobile a');
+
+    function openMenu() {
+      drawer.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+    }
+    function closeMenu() {
+      drawer.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+    }
+
+    menuBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    navLinks.forEach(link => link.addEventListener('click', closeMenu));
+  </script>
+</body>
+</html>

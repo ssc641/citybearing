@@ -151,7 +151,7 @@ body {
   color: var(--white);
 
   /* Background image only */
-  background: url('himg.jpg') no-repeat center center;
+  background: url('bearings.jpg') no-repeat center center;
   background-size: cover;
 }
 
@@ -275,4 +275,4 @@ body {
   .product-grid {
     grid-template-columns: repeat(4, minmax(220px, 1fr));
   }
-                        }
+}

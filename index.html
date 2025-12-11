@@ -90,16 +90,55 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section contact">
-    <h3>Contact us</h3>
-    <p><strong>Tel:</strong> (054) 222 9118</p>
-    <p><strong>Location:</strong> Gweru, Zimbabwe</p>
-    <div class="contact-actions">
-      <a class="btn btn-primary" href="tel:+263542229118">Call now</a>
-      <a class="btn btn-whatsapp" href="https://wa.me/263542229118">Chat on WhatsApp</a>
-    </div>
-  </section>
+ <!-- Contact Section -->
+<section id="contact" class="section contact">
+  <h2>Contact Us</h2>
+  <p><strong>Address:</strong> Gweru, Midlands, Zimbabwe</p>
+  <p><strong>Phone:</strong> (054) 222 9118</p>
+  <p><strong>Email:</strong> citybearings@example.com</p>
+
+  <div class="contact-actions">
+    <a class="btn btn-primary" href="tel:+263542229118">Call now</a>
+    <a class="btn btn-whatsapp" href="https://wa.me/263542229118">WhatsApp</a>
+    <a class="btn" href="mailto:citybearings@example.com">Email</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Send us a message</h2>
+  <form id="contactForm" class="product-card contact-form">
+    <label>
+      <span>Name</span>
+      <input type="text" name="name" required>
+    </label>
+    <label>
+      <span>Email</span>
+      <input type="email" name="email" required>
+    </label>
+    <label>
+      <span>Phone (optional)</span>
+      <input type="tel" name="phone">
+    </label>
+    <label>
+      <span>Message</span>
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+    <button type="submit" class="btn btn-primary">Send message</button>
+    <p id="formStatus"></p>
+  </form>
+</section>
+
+<section class="section">
+  <h2>Find us</h2>
+  <div class="product-card map-card">
+    <iframe
+      title="City Bearings location"
+      src="https://www.google.com/maps?q=Gweru,+Zimbabwe&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
 
   <footer class="footer">
     <p>&copy; 2025 City Bearings | Designed by STAFF</p>
@@ -139,4 +178,5 @@
 </body>
 
 </html>
+
 
